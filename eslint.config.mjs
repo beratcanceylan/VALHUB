@@ -1,4 +1,5 @@
 import reactHooks from "eslint-plugin-react-hooks";
+import { defineConfig } from "eslint/config";
 import tseslint from "typescript-eslint";
 
 /**
@@ -6,7 +7,7 @@ import tseslint from "typescript-eslint";
  * - production code never imports test fixtures
  * - UI never imports provider DTO modules
  */
-export default tseslint.config(
+export default defineConfig(
   {
     ignores: ["**/node_modules/**", "**/dist/**", "**/.expo/**", "coverage/**", "android/**", "ios/**", "**/*.config.*", "**/babel.config.js", "tooling/**"],
   },

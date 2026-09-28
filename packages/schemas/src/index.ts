@@ -7,7 +7,7 @@ import { APP_ERROR_CODES, PROVIDER_CAPABILITIES, SEARCH_KINDS } from "@valhub/do
  * client validates every response against these before it reaches UI code.
  */
 
-const url = z.string().url();
+const url = z.url();
 const iso = z.string().min(1);
 
 export const sourceRefSchema: z.ZodType<D.SourceRef> = z.object({

@@ -93,7 +93,7 @@ export function IconButton({
   /** Required: icon-only controls must have an accessible name. */
   label: string;
   onPress?: () => void;
-  color?: Parameters<typeof Icon>[0]["color"];
+  color?: NonNullable<Parameters<typeof Icon>[0]["color"]>;
   size?: number;
   disabled?: boolean;
   selected?: boolean;

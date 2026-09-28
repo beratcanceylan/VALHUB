@@ -120,7 +120,7 @@ export default function SearchScreen() {
   const search = useSearch(debounced);
 
   useEffect(() => {
-    if (search.data && search.data.query === debounced && debounced.length >= 2) {
+    if (search.data?.query === debounced && debounced.length >= 2) {
       analytics.track("search_performed", { length: debounced.length, groups: search.data.groups.length });
     }
   }, [search.data, debounced]);

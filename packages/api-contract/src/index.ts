@@ -15,8 +15,8 @@ export const bootstrapSchema = z.object({
   currentPatch: z.string().optional(),
   allowedMediaHosts: z.array(z.string()),
   attribution: z.object({
-    wiki: z.object({ name: z.string(), url: z.string().url(), license: z.string(), licenseUrl: z.string().url() }),
-    valorantApi: z.object({ name: z.string(), url: z.string().url() }),
+    wiki: z.object({ name: z.string(), url: z.url(), license: z.string(), licenseUrl: z.url() }),
+    valorantApi: z.object({ name: z.string(), url: z.url() }),
     riotLegal: z.string(),
   }),
 });
@@ -29,9 +29,9 @@ export const agentMediaSchema = z.object({
       abilityName: z.string(),
       slot: z.enum(["Q", "E", "C", "X", "PASSIVE"]).optional(),
       description: z.string().optional(),
-      videoUrl: z.string().url(),
+      videoUrl: z.url(),
       mimeType: z.string().optional(),
-      thumbnailUrl: z.string().url().optional(),
+      thumbnailUrl: z.url().optional(),
     }),
   ),
   source: S.sourceRefSchema,

@@ -304,7 +304,7 @@ function useStrategyDocument(initial: Strategy) {
     updateElements,
     addElement: (el: StrategyElement) => updateElements((els) => [...els, el]),
     undo: () => {
-      const prev = past[past.length - 1];
+      const prev = past.at(-1);
       if (!prev) return;
       setFuture((f) => [strategy.frames, ...f]);
       setPast((p) => p.slice(0, -1));
