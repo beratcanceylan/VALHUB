@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Lint
+        run: npm run lint
+      - name: Policy gates (fixtures, bundled assets, secrets)
+        run: npm run check
+      - name: Unit tests
+        run: npm run test:unit
+      - name: Mobile component + accessibility tests
+        run: npm run test:mobile
+      - name: Expo doctor
+        run: npm run doctor
+      - name: Export mobile bundles
+        run: npm run build:mobile

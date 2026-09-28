@@ -1,0 +1,259 @@
+{
+ "capturedAt": "2026-09-26T10:20:35.208Z",
+ "vapiAgents": [
+  {
+   "uuid": "add6443a-41bd-e414-f6ad-e58d267f4e95",
+   "displayName": "Jett",
+   "description": "Representing her home country of South Korea, Jett's agile and evasive fighting style lets her take risks no one else can. She runs circles around every skirmish, cutting enemies up before they even know what hit them.",
+   "displayIcon": "https://media.valorant-api.com/agents/add6443a-41bd-e414-f6ad-e58d267f4e95/displayicon.png",
+   "displayIconSmall": "https://media.valorant-api.com/agents/add6443a-41bd-e414-f6ad-e58d267f4e95/displayicon.png",
+   "fullPortrait": "https://media.valorant-api.com/agents/add6443a-41bd-e414-f6ad-e58d267f4e95/fullportrait.png",
+   "isPlayableCharacter": true,
+   "role": {
+    "uuid": "dbe8757e-9e92-4ed4-b39f-9dfc589691d4",
+    "displayName": "Duelist"
+   },
+   "abilities": [
+    {
+     "slot": "Ability1",
+     "displayName": "Updraft",
+     "description": "INSTANTLY propel Jett high into the air.",
+     "displayIcon": "https://media.valorant-api.com/agents/add6443a-41bd-e414-f6ad-e58d267f4e95/abilities/ability1/displayicon.png"
+    },
+    {
+     "slot": "Ability2",
+     "displayName": "Tailwind",
+     "description": "ACTIVATE to prepare a gust of wind for a limited time. RE-USE the wind to propel Jett in the direction she is moving. If Jett is standing still, she propels forward. Tailwind charge resets every two kills.",
+     "displayIcon": "https://media.valorant-api.com/agents/add6443a-41bd-e414-f6ad-e58d267f4e95/abilities/ability2/displayicon.png"
+    },
+    {
+     "slot": "Grenade",
+     "displayName": "Cloudburst",
+     "description": "INSTANTLY throw a projectile that expands into a brief vision-blocking cloud on impact with a surface. HOLD the ability key to curve the smoke in the direction of your crosshair.",
+     "displayIcon": "https://media.valorant-api.com/agents/add6443a-41bd-e414-f6ad-e58d267f4e95/abilities/grenade/displayicon.png"
+    },
+    {
+     "slot": "Ultimate",
+     "displayName": "Blade Storm",
+     "description": "EQUIP a set of highly accurate throwing knives. FIRE to throw a single knife and recharge knives on a kill. ALT FIRE to throw all remaining daggers but does not recharge on a kill.",
+     "displayIcon": "https://media.valorant-api.com/agents/add6443a-41bd-e414-f6ad-e58d267f4e95/abilities/ultimate/displayicon.png"
+    },
+    {
+     "slot": "Passive",
+     "displayName": "Drift",
+     "description": "Holding the jump button while falling allows you to glide through the air.",
+     "displayIcon": "https://media.valorant-api.com/agents/add6443a-41bd-e414-f6ad-e58d267f4e95/abilities/passive/displayicon.png"
+    }
+   ]
+  },
+  {
+   "uuid": "601dbbe7-43ce-be57-2a40-4abd24953621",
+   "displayName": "KAY/O",
+   "description": "KAY/O is a machine of war built for a single purpose: neutralizing radiants. His power to Suppress enemy abilities dismantles his opponents' capacity to fight back, securing him and his allies the ultimate edge.",
+   "displayIcon": "https://media.valorant-api.com/agents/601dbbe7-43ce-be57-2a40-4abd24953621/displayicon.png",
+   "displayIconSmall": "https://media.valorant-api.com/agents/601dbbe7-43ce-be57-2a40-4abd24953621/displayicon.png",
+   "fullPortrait": "https://media.valorant-api.com/agents/601dbbe7-43ce-be57-2a40-4abd24953621/fullportrait.png",
+   "isPlayableCharacter": true,
+   "role": {
+    "uuid": "1b47567f-8f7b-444b-aae3-b0c634622d10",
+    "displayName": "Initiator"
+   },
+   "abilities": [
+    {
+     "slot": "Grenade",
+     "displayName": "FRAG/ment",
+     "description": "EQUIP an explosive fragment. FIRE to throw. ALT FIRE to lob. The fragment sticks to the floor and explodes multiple times, dealing near lethal damage at the center with each explosion.",
+     "displayIcon": "https://media.valorant-api.com/agents/601dbbe7-43ce-be57-2a40-4abd24953621/abilities/grenade/displayicon.png"
+    },
+    {
+     "slot": "Ability1",
+     "displayName": "FLASH/drive",
+     "description": "EQUIP a flash grenade. FIRE to overhand throw. ALT FIRE to lob a weaker version that explodes quickly. The flash grenade explodes after a short fuse, Blinding anyone in line of sight.",
+     "displayIcon": "https://media.valorant-api.com/agents/601dbbe7-43ce-be57-2a40-4abd24953621/abilities/ability1/displayicon.png"
+    },
+    {
+     "slot": "Ability2",
+     "displayName": "ZERO/point",
+     "description": "EQUIP a suppression blade. FIRE to throw. The blade sticks to the first surface it hits, winds up, and Suppresses anyone in the radius of the explosion. Enemies can destroy this blade.",
+     "displayIcon": "https://media.valorant-api.com/agents/601dbbe7-43ce-be57-2a40-4abd24953621/abilities/ability2/displayicon.png"
+    },
+    {
+     "slot": "Ultimate",
+     "displayName": "NULL/cmd",
+     "description": "INSTANTLY overload with polarized radianite energy that pulses from KAY/O in a massive radius. Enemies hit with pulses are Suppressed for a short duration. While overloaded, KAY/O gains Combat Stim and can be re-stabilized if downed.",
+     "displayIcon": "https://media.valorant-api.com/agents/601dbbe7-43ce-be57-2a40-4abd24953621/abilities/ultimate/displayicon.png"
+    }
+   ]
+  }
+ ],
+ "vapiMaps": [
+  {
+   "uuid": "7eaecc1b-4337-bbf6-6ab9-04b8f06b3319",
+   "displayName": "Ascent",
+   "tacticalDescription": "A/B Sites",
+   "coordinates": "45°26'BF'N,12°20'Q'E",
+   "displayIcon": "https://media.valorant-api.com/maps/7eaecc1b-4337-bbf6-6ab9-04b8f06b3319/displayicon.png",
+   "listViewIcon": "https://media.valorant-api.com/maps/7eaecc1b-4337-bbf6-6ab9-04b8f06b3319/listviewicon.png",
+   "splash": "https://media.valorant-api.com/maps/7eaecc1b-4337-bbf6-6ab9-04b8f06b3319/splash.png",
+   "mapUrl": "/Game/Maps/Ascent/Ascent",
+   "xMultiplier": 0.00007,
+   "yMultiplier": -0.00007,
+   "xScalarToAdd": 0.813895,
+   "yScalarToAdd": 0.573242,
+   "callouts": [
+    {
+     "regionName": "Tree",
+     "superRegionName": "A",
+     "location": {
+      "x": 3980.9062,
+      "y": -5938.758
+     }
+    },
+    {
+     "regionName": "Lobby",
+     "superRegionName": "A",
+     "location": {
+      "x": 4489.032,
+      "y": -3014.0515
+     }
+    },
+    {
+     "regionName": "Main",
+     "superRegionName": "A",
+     "location": {
+      "x": 5321.6206,
+      "y": -4710.1274
+     }
+    },
+    {
+     "regionName": "Window",
+     "superRegionName": "A",
+     "location": {
+      "x": 4023.0244,
+      "y": -8180.692
+     }
+    }
+   ]
+  },
+  {
+   "uuid": "ee613ee9-28b7-4beb-9666-08db13bb2244",
+   "displayName": "The Range",
+   "tacticalDescription": null,
+   "coordinates": "45°26'FF'N,12°20'Q'E",
+   "displayIcon": null,
+   "listViewIcon": "https://media.valorant-api.com/maps/ee613ee9-28b7-4beb-9666-08db13bb2244/listviewicon.png",
+   "splash": "https://media.valorant-api.com/maps/ee613ee9-28b7-4beb-9666-08db13bb2244/splash.png",
+   "mapUrl": "/Game/Maps/Poveglia/Range",
+   "xMultiplier": 0,
+   "yMultiplier": 0,
+   "xScalarToAdd": 0,
+   "yScalarToAdd": 0,
+   "callouts": []
+  }
+ ],
+ "vapiWeapon": {
+  "uuid": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+  "displayName": "Vandal",
+  "category": "EEquippableCategory::Rifle",
+  "displayIcon": "https://media.valorant-api.com/weapons/9c82e19d-4575-0200-1a81-3eacf00cf872/displayicon.png",
+  "weaponStats": {
+   "fireRate": 9.75,
+   "magazineSize": 25,
+   "reloadTimeSeconds": 2.5,
+   "equipTimeSeconds": 1,
+   "firstBulletAccuracy": 0.25,
+   "wallPenetration": "EWallPenetrationDisplayType::Medium",
+   "damageRanges": [
+    {
+     "rangeStartMeters": 0,
+     "rangeEndMeters": 50,
+     "headDamage": 160,
+     "bodyDamage": 40,
+     "legDamage": 34
+    }
+   ]
+  },
+  "shopData": {
+   "cost": 2900,
+   "category": "Rifles"
+  },
+  "skins": [
+   {
+    "uuid": "27f21d97-4c4b-bd1c-1f08-31830ab0be84",
+    "displayName": "Standard Vandal",
+    "displayIcon": "https://media.valorant-api.com/weaponskins/27f21d97-4c4b-bd1c-1f08-31830ab0be84/displayicon.png",
+    "contentTierUuid": null,
+    "chromas": [
+     {
+      "uuid": "19629ae1-4996-ae98-7742-24a240d41f99",
+      "displayName": "Vandal",
+      "displayIcon": "https://media.valorant-api.com/weaponskinchromas/19629ae1-4996-ae98-7742-24a240d41f99/displayicon.png",
+      "fullRender": "https://media.valorant-api.com/weaponskinchromas/19629ae1-4996-ae98-7742-24a240d41f99/fullrender.png",
+      "swatch": null,
+      "streamedVideo": null
+     }
+    ],
+    "levels": [
+     {
+      "uuid": "1ab72e66-4da3-33a0-164f-908113e075a4",
+      "displayName": "Vandal",
+      "displayIcon": "https://media.valorant-api.com/weaponskinlevels/1ab72e66-4da3-33a0-164f-908113e075a4/displayicon.png",
+      "streamedVideo": null
+     }
+    ]
+   },
+   {
+    "uuid": "d980c0c8-492b-b8df-2d91-af99a7707170",
+    "displayName": "Immortalized Vandal",
+    "displayIcon": "https://media.valorant-api.com/weaponskins/d980c0c8-492b-b8df-2d91-af99a7707170/displayicon.png",
+    "contentTierUuid": "12683d76-48d7-84a3-4e09-6985794f0445",
+    "chromas": [
+     {
+      "uuid": "64c51524-43da-875e-ff0d-db97f3e6194e",
+      "displayName": "Immortalized Vandal",
+      "displayIcon": "https://media.valorant-api.com/weaponskinchromas/64c51524-43da-875e-ff0d-db97f3e6194e/displayicon.png",
+      "fullRender": "https://media.valorant-api.com/weaponskinchromas/64c51524-43da-875e-ff0d-db97f3e6194e/fullrender.png",
+      "swatch": "https://media.valorant-api.com/weaponskinchromas/64c51524-43da-875e-ff0d-db97f3e6194e/swatch.png",
+      "streamedVideo": null
+     },
+     {
+      "uuid": "9928d119-4f2b-0412-fcc0-389c367d1989",
+      "displayName": "Immortalized Vandal\n(Variant 1 Orange)",
+      "displayIcon": "https://media.valorant-api.com/weaponskinchromas/9928d119-4f2b-0412-fcc0-389c367d1989/displayicon.png",
+      "fullRender": "https://media.valorant-api.com/weaponskinchromas/9928d119-4f2b-0412-fcc0-389c367d1989/fullrender.png",
+      "swatch": "https://media.valorant-api.com/weaponskinchromas/9928d119-4f2b-0412-fcc0-389c367d1989/swatch.png",
+      "streamedVideo": null
+     }
+    ],
+    "levels": [
+     {
+      "uuid": "1e84a5bd-4350-c804-d6cc-79a2d98e6344",
+      "displayName": "Immortalized Vandal",
+      "displayIcon": "https://media.valorant-api.com/weaponskinlevels/1e84a5bd-4350-c804-d6cc-79a2d98e6344/displayicon.png",
+      "streamedVideo": null
+     }
+    ]
+   }
+  ]
+ },
+ "wikiJett": {
+  "batchcomplete": "",
+  "query": {
+   "pages": {
+    "111": {
+     "pageid": 111,
+     "ns": 0,
+     "title": "Jett",
+     "extract": "Han \"Jett\" Sunwoo is a playable agent in VALORANT since the Closed Beta. A South Korean radiant, she is one of the game's first Duelists. With the power to manipulate wind, Jett is mobile on the ground and in the air, and can fire throwing knives with lethal precision.",
+     "revisions": [
+      {
+       "revid": 153358,
+       "parentid": 152716,
+       "timestamp": "2026-09-22T12:18:49Z"
+      }
+     ]
+    }
+   }
+  }
+ }
+}

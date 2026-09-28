@@ -1,0 +1,11 @@
+{
+  "name": "@valhub/test-fixtures",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "description": "Deterministic fixtures for tests, CI and isolated development ONLY. Production modules must never import this package (enforced by tooling/check-fixture-imports.mjs and ESLint).",
+  "scripts": { "typecheck": "tsc -p tsconfig.json" },
+  "dependencies": {}
+}
