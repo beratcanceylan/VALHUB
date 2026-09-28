@@ -48,6 +48,32 @@ import {
 
 const CONTENT_TTL = { ttlMs: 6 * HOUR, staleIfErrorMs: 48 * HOUR };
 
+type PutCatalogItem = (
+  id: string,
+  item: { kind: CatalogItem["kind"]; name: string; imageUrl?: string | null; cosmeticId?: string },
+) => void;
+
+/** Skins, their upgrade levels and chromas all resolve to the same store item. */
+function indexWeaponSkins(put: PutCatalogItem, weapons: readonly VapiWeaponWithSkins[]): void {
+  for (const weapon of weapons) {
+    for (const skin of weapon.skins) {
+      const imageUrl = skin.levels[0]?.displayIcon ?? skin.displayIcon ?? skin.chromas[0]?.fullRender;
+      const entry = { kind: "WEAPON_SKIN" as const, name: skin.displayName, imageUrl, cosmeticId: skin.uuid };
+      put(skin.uuid, entry);
+      for (const level of skin.levels) put(level.uuid, entry);
+      for (const chroma of skin.chromas) put(chroma.uuid, { ...entry, name: chroma.displayName, imageUrl: chroma.fullRender ?? chroma.displayIcon ?? imageUrl });
+    }
+  }
+}
+
+function indexBuddies(put: PutCatalogItem, buddies: readonly VapiBuddy[]): void {
+  for (const b of buddies) {
+    const entry = { kind: "BUDDY" as const, name: b.displayName, imageUrl: b.displayIcon, cosmeticId: b.uuid };
+    put(b.uuid, entry);
+    for (const level of b.levels ?? []) put(level.uuid, entry);
+  }
+}
+
 export class ValorantApiContentAdapter implements ContentAdapter {
   private readonly limiter = new ProviderLimiter("valorant-api", 20, 5);
   private lastFailureAt = 0;
@@ -216,7 +242,7 @@ export class ValorantApiContentAdapter implements ContentAdapter {
         this.get<VapiPlayerTitle[]>("/v1/playertitles", locale).catch(() => ({ data: [] as VapiPlayerTitle[] })),
       ]);
       const index = new Map<string, CatalogItem>();
-      const put = (id: string, item: { kind: CatalogItem["kind"]; name: string; imageUrl?: string | null | undefined; cosmeticId?: string }) => {
+      const put: PutCatalogItem = (id, item) => {
         index.set(id, {
           kind: item.kind,
           name: item.name,
@@ -224,21 +250,9 @@ export class ValorantApiContentAdapter implements ContentAdapter {
           ...(item.cosmeticId ? { cosmeticId: item.cosmeticId } : {}),
         });
       };
-      for (const weapon of weapons.data) {
-        for (const skin of weapon.skins) {
-          const imageUrl = skin.levels[0]?.displayIcon ?? skin.displayIcon ?? skin.chromas[0]?.fullRender;
-          const entry = { kind: "WEAPON_SKIN" as const, name: skin.displayName, imageUrl, cosmeticId: skin.uuid };
-          put(skin.uuid, entry);
-          for (const level of skin.levels) put(level.uuid, entry);
-          for (const chroma of skin.chromas) put(chroma.uuid, { ...entry, name: chroma.displayName, imageUrl: chroma.fullRender ?? chroma.displayIcon ?? imageUrl });
-        }
-      }
+      indexWeaponSkins(put, weapons.data);
       for (const b of bundles.data) put(b.uuid, { kind: "BUNDLE", name: b.displayName, imageUrl: b.displayIcon2 ?? b.displayIcon, cosmeticId: b.uuid });
-      for (const b of buddies.data) {
-        const entry = { kind: "BUDDY" as const, name: b.displayName, imageUrl: b.displayIcon, cosmeticId: b.uuid };
-        put(b.uuid, entry);
-        for (const level of b.levels ?? []) put(level.uuid, entry);
-      }
+      indexBuddies(put, buddies.data);
       for (const c of cards.data) put(c.uuid, { kind: "PLAYER_CARD", name: c.displayName, imageUrl: c.wideArt ?? c.displayIcon, cosmeticId: c.uuid });
       for (const sp of sprays.data) put(sp.uuid, { kind: "SPRAY", name: sp.displayName, imageUrl: sp.fullTransparentIcon ?? sp.displayIcon, cosmeticId: sp.uuid });
       for (const title of titles.data) {

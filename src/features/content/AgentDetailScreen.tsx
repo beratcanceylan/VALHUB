@@ -17,12 +17,13 @@ function AbilityPicker({ abilities, selected, onSelect }: Readonly<{ abilities: 
     <View accessibilityRole="tablist" style={{ flexDirection: "row", gap: t.space[2] }}>
       {abilities.map((a, i) => {
         const active = i === selected;
+        const slotLabel = tr(`agent.slot.${a.slot}`);
         return (
           <Pressable
             key={a.id}
             accessibilityRole="tab"
             accessibilityState={{ selected: active }}
-            accessibilityLabel={`${tr(`agent.slot.${a.slot}`)}: ${a.name}`}
+            accessibilityLabel={`${slotLabel}: ${a.name}`}
             onPress={() => onSelect(i)}
             style={{
               width,
@@ -59,13 +60,14 @@ function Abilities({ agent }: Readonly<{ agent: Agent }>) {
   const ability = abilities[selected] ?? abilities[0];
   if (!ability) return null;
   const video = media.data?.abilities.find((v) => v.slot === ability.slot);
+  const posterProps = video?.thumbnailUrl ? { posterUri: video.thumbnailUrl } : {};
   return (
     <>
       <SectionHeader title={tr("agent.abilities")} />
       <AbilityPicker abilities={abilities} selected={selected} onSelect={setSelected} />
       <Surface padded style={{ marginTop: t.space[3], gap: t.space[3] }}>
         {video ? (
-          <RemoteVideo key={video.videoUrl} uri={video.videoUrl} {...(video.thumbnailUrl ? { posterUri: video.thumbnailUrl } : {})} label={`${ability.name} — ${tr("agent.demo")}`} />
+          <RemoteVideo key={video.videoUrl} uri={video.videoUrl} {...posterProps} label={`${ability.name} — ${tr("agent.demo")}`} />
         ) : null}
         <View style={{ gap: t.space[1] }}>
           <Text variant="title" weight="bold">

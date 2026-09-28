@@ -161,7 +161,7 @@ function Leaderboard() {
   const { t, formatNumber } = useT();
   const session = useSession();
   // Until the player picks one, follow their own region once the profile has loaded.
-  const [picked, setRegion] = useState<RiotRegion | undefined>(undefined);
+  const [picked, setPicked] = useState<RiotRegion | undefined>(undefined);
   const region = picked ?? session.profile?.region ?? "eu";
   const cap = useCapability("LEADERBOARD");
   const board = useLeaderboard(region, cap?.available === true);
@@ -179,7 +179,7 @@ function Leaderboard() {
       <SectionHeader title={t("performance.leaderboard")} />
       <ChipRow>
         {RIOT_REGIONS.map((r) => (
-          <FilterChip key={r} label={r.toUpperCase()} selected={r === region} onPress={() => setRegion(r)} />
+          <FilterChip key={r} label={r.toUpperCase()} selected={r === region} onPress={() => setPicked(r)} />
         ))}
       </ChipRow>
       <View style={{ height: theme.space[2] }} />

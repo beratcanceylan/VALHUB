@@ -136,10 +136,10 @@ function RoundStrip({ match, line }: Readonly<{ match: MatchDetail; line: Player
                 borderRadius: t.radius.xs,
                 alignItems: "center",
                 justifyContent: "center",
-                backgroundColor: mine === undefined ? t.colors.surfaceSunken : mine ? t.colors.positiveSubtle : t.colors.negativeSubtle,
+                backgroundColor: t.colors[roundTone(mine).background],
               }}
             >
-              <Text variant="caption" numeric weight="semibold" color={mine === undefined ? "textSecondary" : mine ? "positive" : "negative"}>
+              <Text variant="caption" numeric weight="semibold" color={roundTone(mine).text}>
                 {r.number}
               </Text>
             </View>
@@ -165,6 +165,14 @@ function Body({ match }: Readonly<{ match: MatchDetail }>) {
       <RoundStrip match={match} line={line} />
     </>
   );
+}
+
+/** Round chip colours: neutral when the player's team is unknown, otherwise won/lost. */
+function roundTone(mine: boolean | undefined) {
+  if (mine === undefined) return { background: "surfaceSunken", text: "textSecondary" } as const;
+  return mine
+    ? ({ background: "positiveSubtle", text: "positive" } as const)
+    : ({ background: "negativeSubtle", text: "negative" } as const);
 }
 
 export default function MatchDetailScreen() {

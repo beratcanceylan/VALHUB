@@ -15,10 +15,15 @@ export function useColumnWidth(columns: number, gap?: number): number {
   return Math.floor((width - t.space[4] * 2 - g * (columns - 1)) / columns);
 }
 
+function gradientStop(color: string, position: number): string {
+  return `${color} ${Math.round(position * 100)}%`;
+}
+
 /** CSS gradient string from top-to-bottom color stops. */
 function verticalGradient(colors: readonly string[]): string {
   const last = Math.max(1, colors.length - 1);
-  return `linear-gradient(to bottom, ${colors.map((c, i) => `${c} ${Math.round((i / last) * 100)}%`).join(", ")})`;
+  const stops = colors.map((c, i) => gradientStop(c, i / last));
+  return `linear-gradient(to bottom, ${stops.join(", ")})`;
 }
 
 function scrim(t: Theme, from = 35): string {

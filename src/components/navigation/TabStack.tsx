@@ -48,7 +48,7 @@ export function TabStack({ screen, title }: Readonly<{ screen: string; title: st
           : {
               headerStyle: { backgroundColor: t.colors.background },
               headerTitleStyle: { fontWeight: "600", fontSize: t.fontSize.title },
-              headerRight: () => <AndroidHeaderActions />,
+              headerRight: AndroidHeaderActions,
             }),
       }}
     >

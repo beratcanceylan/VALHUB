@@ -8,7 +8,7 @@ import { join, relative } from "node:path";
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const SCAN = ["src", "packages/core/src", "packages/domain/src", "packages/schemas/src", "packages/api-contract/src", "packages/design-tokens/src"];
 /** Module specifiers in `from "x"`, `import("x")` and `require("x")`. */
-const SPECIFIER = /(?:\bfrom|\bimport|\brequire)\s*\(?\s*["']([^"'\n]+)["']/g;
+const SPECIFIER = /(?:\bfrom|\bimport|\brequire)\s*(?:\(\s*)?["']([^"'\n]+)["']/g;
 const isFixture = (spec) => spec.startsWith("@valhub/test-fixtures") || spec.includes("packages/test-fixtures");
 
 function* walk(dir) {

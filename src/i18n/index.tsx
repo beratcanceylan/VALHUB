@@ -1,7 +1,7 @@
 import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from "react";
 import { getLocales, getCalendars } from "expo-localization";
 import { resolveAppLocale, type AppLocale } from "@valhub/domain";
-import { getPreference, setPreference } from "@/data/cache/db";
+import { getPreference, setPreference as savePreference } from "@/data/cache/db";
 import { translate, type MessageKey } from "./translate";
 
 export type { MessageKey } from "./translate";
@@ -26,13 +26,13 @@ function systemLocale(): AppLocale {
 }
 
 export function I18nProvider({ children }: Readonly<{ children: ReactNode }>) {
-  const [preference, setPreferenceState] = useState<AppLocale | "system">(() => getPreference<AppLocale | "system">("locale", "system"));
+  const [preference, setPreference] = useState<AppLocale | "system">(() => getPreference<AppLocale | "system">("locale", "system"));
   const locale = preference === "system" ? systemLocale() : preference;
   const timeZone = getCalendars()[0]?.timeZone ?? "UTC";
 
   const setLocale = useCallback((next: AppLocale | "system") => {
-    setPreference("locale", next);
-    setPreferenceState(next);
+    savePreference("locale", next);
+    setPreference(next);
   }, []);
 
   const value = useMemo<I18nValue>(() => {
