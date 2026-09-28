@@ -9,8 +9,10 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version-file: .nvmrc
           cache: npm
@@ -21,10 +23,12 @@ jobs:
         run: npm run lint
       - name: Policy gates (fixtures, bundled assets, secrets)
         run: npm run check
-      - name: Unit tests
-        run: npm run test:unit
-      - name: Mobile component + accessibility tests
-        run: npm run test:mobile
+      - name: Unit, mobile component + accessibility tests with coverage
+        run: npm run test:coverage
+      - name: SonarQube analysis
+        uses: SonarSource/sonarqube-scan-action@ba9859eae8dd6bd29e412f25ddbbef3d032000f4 # v8.2.2
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       - name: Expo doctor
         run: npm run doctor
       - name: Export mobile bundles
