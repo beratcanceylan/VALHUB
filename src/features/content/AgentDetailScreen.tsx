@@ -34,7 +34,7 @@ function AbilityPicker({ abilities, selected, onSelect }: Readonly<{ abilities: 
               borderCurve: "continuous",
               borderWidth: active ? t.borderWidth.thick : t.borderWidth.hairline,
               borderColor: active ? t.colors.accent : t.colors.border,
-              backgroundColor: active ? t.colors.accentSubtle : t.colors.surface,
+              backgroundColor: t.colors.surface,
             }}
           >
             {/* Ability icons are white glyphs; a dark chip keeps them visible in light mode too. */}
@@ -67,14 +67,14 @@ function Abilities({ agent }: Readonly<{ agent: Agent }>) {
       <AbilityPicker abilities={abilities} selected={selected} onSelect={setSelected} />
       <Surface padded style={{ marginTop: t.space[3], gap: t.space[3] }}>
         {video ? (
-          <RemoteVideo key={video.videoUrl} uri={video.videoUrl} {...posterProps} label={`${ability.name} — ${tr("agent.demo")}`} />
+          <RemoteVideo key={video.videoUrl} uri={video.videoUrl} {...posterProps} label={`${ability.name}, ${tr("agent.demo")}`} />
         ) : null}
         <View style={{ gap: t.space[1] }}>
-          <Text variant="title" weight="bold">
-            {ability.name}
-          </Text>
-          <Text variant="caption" label color="accent">
+          <Text variant="caption" weight="medium" color="textSecondary">
             {tr(`agent.slot.${ability.slot}`)}
+          </Text>
+          <Text variant="titleSm" weight="semibold">
+            {ability.name}
           </Text>
           <Text variant="bodySm" color="textSecondary" style={{ marginTop: t.space[1] }}>
             {ability.description}
@@ -118,7 +118,6 @@ export default function AgentDetailScreen() {
             <HeroCard
               imageUri={a.portraitUrl ?? a.iconUrl}
               contentPosition="top center"
-              {...(a.gradient ? { gradient: a.gradient } : {})}
               eyebrow={tr(`agent.role.${a.role}`)}
               title={a.name}
               height={380}

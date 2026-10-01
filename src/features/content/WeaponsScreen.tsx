@@ -27,7 +27,7 @@ export function WeaponsScreen() {
   const categories = CATEGORY_ORDER.filter((c) => weapons.data?.some((w) => w.category === c));
   return (
     <Screen>
-      <Stack.Screen options={{ title: t("learn.weapons") }} />
+      <Stack.Screen options={{ title: t("guide.weapons") }} />
       <ChipRow>
         <FilterChip label={t("agent.filterAll")} selected={!category} onPress={() => setCategory(undefined)} />
         {categories.map((c) => (
@@ -99,10 +99,10 @@ export function WeaponDetailScreen() {
         {(w) => (
           <>
             <Stack.Screen options={{ title: w.name }} />
-            <View style={{ backgroundColor: t.colors.surface, borderRadius: t.radius.lg + 4, borderCurve: "continuous", padding: t.space[5], gap: t.space[3] }}>
+            <View style={{ backgroundColor: t.colors.surface, borderRadius: t.radius.md, borderCurve: "continuous", padding: t.space[5], gap: t.space[3] }}>
               <RemoteImage uri={w.iconUrl} width="100%" aspectRatio={3} contentFit="contain" label={w.name} style={{ backgroundColor: "transparent" }} />
               <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: t.space[2] }}>
-                <Text variant="caption" label color="accent" style={{ flexShrink: 1 }} numberOfLines={1}>
+                <Text variant="bodySm" weight="medium" color="textSecondary" style={{ flexShrink: 1 }} numberOfLines={1}>
                   {tr(`weapon.category.${w.category}`)}
                 </Text>
                 <WeaponCost cost={w.cost} />

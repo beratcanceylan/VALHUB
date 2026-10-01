@@ -1,4 +1,4 @@
-import { Children, isValidElement, type ReactNode } from "react";
+import { Children, createContext, isValidElement, useContext, type ReactNode } from "react";
 import { Platform, Pressable, RefreshControl, ScrollView, View, type ScrollViewProps, type StyleProp, type ViewStyle } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useTheme } from "@/design/theme";
@@ -6,6 +6,19 @@ import { Icon, type IconName } from "./Icon";
 import { Text } from "./Text";
 
 const IS_IOS = Platform.OS === "ios";
+
+/**
+ * True inside screens hosted by a tab bar that already sits above the bottom system inset
+ * (the custom Android/web bar), so scroll bodies don't pad for it a second time.
+ */
+export const BottomInsetHandledContext = createContext(false);
+
+function useBottomInset(): number {
+  const insets = useSafeAreaInsets();
+  const handled = useContext(BottomInsetHandledContext);
+  // iOS scroll views already inset for the home indicator and the system tab bar.
+  return IS_IOS || handled ? 0 : insets.bottom;
+}
 
 /**
  * Scrollable screen body with consistent gutters and optional pull-to-refresh. On iOS the scroll
@@ -19,7 +32,7 @@ export function Screen({
   ...rest
 }: Readonly<ScrollViewProps & { children: ReactNode; refreshing?: boolean; onRefresh?: () => void; padded?: boolean }>) {
   const t = useTheme();
-  const insets = useSafeAreaInsets();
+  const bottomInset = useBottomInset();
   const contentStyle = padded ? { paddingHorizontal: t.space[4], paddingTop: t.space[2] } : { paddingTop: t.space[2] };
   return (
     <ScrollView
@@ -32,8 +45,8 @@ export function Screen({
       {...rest}
     >
       {children}
-      {/* Spacer instead of dynamic bottom padding; iOS already insets for the home indicator. */}
-      <View style={{ height: (IS_IOS ? 0 : insets.bottom) + t.space[8] }} />
+      {/* Spacer instead of dynamic bottom padding. */}
+      <View style={{ height: bottomInset + t.space[8] }} />
     </ScrollView>
   );
 }
@@ -41,8 +54,8 @@ export function Screen({
 /** Footer for FlashList/FlatList screens so the last row clears the home indicator / navigation bar. */
 export function ListBottomSpacer() {
   const t = useTheme();
-  const insets = useSafeAreaInsets();
-  return <View style={{ height: (IS_IOS ? 0 : insets.bottom) + t.space[6] }} />;
+  const bottomInset = useBottomInset();
+  return <View style={{ height: bottomInset + t.space[6] }} />;
 }
 
 export function Divider({ inset = 0 }: Readonly<{ inset?: number }>) {
@@ -60,8 +73,8 @@ export function Surface({ children, style, padded = false }: Readonly<{ children
           backgroundColor: t.colors.surface,
           borderRadius: IS_IOS ? t.radius.lg : t.radius.md,
           borderCurve: "continuous",
-          // iOS grouped lists use a hairline edge; Android keeps a thin outline for separation.
-          borderWidth: IS_IOS ? t.borderWidth.hairline : t.borderWidth.thin,
+          // A hairline edge keeps grouped surfaces legible on near-white/near-black backgrounds.
+          borderWidth: t.borderWidth.hairline,
           borderColor: t.colors.border,
           overflow: "hidden",
           padding: padded ? t.space[4] : 0,
@@ -74,22 +87,26 @@ export function Surface({ children, style, padded = false }: Readonly<{ children
   );
 }
 
-export function SectionHeader({ title, actionLabel, onAction, trailing }: Readonly<{ title: string; actionLabel?: string; onAction?: () => void; trailing?: ReactNode }>) {
+export function SectionHeader({
+  title,
+  actionLabel,
+  onAction,
+  trailing,
+  first,
+}: Readonly<{ title: string; actionLabel?: string; onAction?: () => void; trailing?: ReactNode; /** At the top of a screen: no section gap above. */ first?: boolean }>) {
   const t = useTheme();
   return (
     <View
       style={{
         flexDirection: "row",
-        alignItems: "flex-end",
+        alignItems: "center",
         justifyContent: "space-between",
         gap: t.space[3],
-        marginTop: t.space[6],
-        marginBottom: t.space[2],
-        // iOS aligns grouped-section headers with the row text inside the card.
-        paddingHorizontal: IS_IOS ? t.space[4] : 0,
+        marginTop: first ? t.space[2] : t.space[8],
+        marginBottom: t.space[3],
       }}
     >
-      <Text label variant="caption" color="textSecondary" accessibilityRole="header" style={{ flexShrink: 1 }}>
+      <Text variant="titleSm" weight="bold" accessibilityRole="header" style={{ flexShrink: 1 }}>
         {title}
       </Text>
       {actionLabel && onAction ? (
@@ -121,7 +138,7 @@ export function ListRow({ title, subtitle, meta, leading, trailing, icon, onPres
   const t = useTheme();
   const content = (
     <View style={{ flexDirection: "row", alignItems: "center", gap: t.space[3], paddingHorizontal: t.space[4], paddingVertical: t.space[3], minHeight: IS_IOS ? 52 : 56 }}>
-      {leading ?? (icon ? <Icon name={icon} color="textSecondary" /> : null)}
+      {leading ?? (icon ? <Icon name={icon} size={22} color="textSecondary" /> : null)}
       <View style={{ flex: 1, gap: 2 }}>
         <Text weight="medium" numberOfLines={2}>
           {title}

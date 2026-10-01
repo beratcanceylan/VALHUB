@@ -18,7 +18,7 @@ function OfferGrid({ offers }: Readonly<{ offers: StoreOffer[] }>) {
   return (
     <Grid>
       {offers.map((o, i) => (
-        <OfferCard key={`${o.id}-${i}`} offer={o} index={i} width={width} />
+        <OfferCard key={`${o.id}-${i}`} offer={o} width={width} />
       ))}
     </Grid>
   );
@@ -42,7 +42,7 @@ function FeaturedBundle({ bundle }: Readonly<{ bundle: StoreBundle }>) {
           horizontal
           data={bundle.items}
           keyExtractor={(o, i) => `${o.id}-${i}`}
-          renderItem={({ item, index }) => <OfferCard offer={item} index={index} width={itemWidth} />}
+          renderItem={({ item }) => <OfferCard offer={item} width={itemWidth} />}
           showsHorizontalScrollIndicator={false}
           style={{ marginHorizontal: -t.space[4] }}
           contentContainerStyle={{ paddingHorizontal: t.space[4], gap: t.space[3] }}
@@ -123,7 +123,7 @@ function StoreSkeleton() {
   return (
     <View style={{ gap: t.space[3], marginTop: t.space[4] }}>
       {[0, 1, 2, 3].map((k) => (
-        <Skeleton key={k} height={172} radius={t.radius.lg} />
+        <Skeleton key={k} height={172} radius={t.radius.md} />
       ))}
     </View>
   );
@@ -137,7 +137,7 @@ function WalletChip({ amount, currency }: Readonly<{ amount: number; currency: "
     <View
       accessible
       accessibilityLabel={`${tr("store.wallet")}: ${priceText(amount, currency)}`}
-      style={{ flexDirection: "row", alignItems: "center", gap: 4, paddingHorizontal: t.space[3], paddingVertical: 4, borderRadius: t.radius.full, backgroundColor: t.colors.surfaceSunken }}
+      style={{ flexDirection: "row", alignItems: "center", gap: 4, paddingHorizontal: t.space[3], paddingVertical: 4, borderRadius: t.radius.sm, backgroundColor: t.colors.surfaceSunken }}
     >
       <CurrencyIcon currency={currency} />
       <Text variant="bodySm" weight="bold" numeric>

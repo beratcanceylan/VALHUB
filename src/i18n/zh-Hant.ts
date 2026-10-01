@@ -27,7 +27,7 @@ export const zhHant: Messages = {
     search: "搜尋",
     settings: "設定",
   },
-  tabs: { home: "首頁", performance: "戰績", learn: "學習", library: "收藏" },
+  tabs: { home: "首頁", guide: "指南", account: "帳戶", library: "收藏" },
   capability: {
     NOT_CONFIGURED: "此版本尚未提供。",
     POLICY_BLOCKED: "無法使用：Riot 開發者政策不允許透過核准的 API 提供此功能。",
@@ -52,6 +52,7 @@ export const zhHant: Messages = {
     connectTitle: "查看你的對戰",
     connectBody: "連結 Riot 帳號即可查看對戰紀錄與你的商店。其他功能不需連結即可使用。",
     latestMatch: "最近對戰",
+    news: "最新消息",
   },
   performance: {
     title: "戰績",
@@ -109,7 +110,8 @@ export const zhHant: Messages = {
     platformStatus: "服務狀態",
     allClear: "目前沒有回報的問題。",
   },
-  learn: { agents: "特務", maps: "地圖", weapons: "武器", cosmetics: "外觀" },
+  guide: { agents: "特務", maps: "地圖", weapons: "武器", cosmetics: "外觀", agentsCount: "{n} 名特務", mapsCount: "{n} 張地圖", weaponsCount: "{n} 種武器", cosmeticsDetail: "造型、組合包等" },
+  account: { connectTitle: "連結 Riot 帳戶", connectBody: "你的商店、對戰紀錄和排行榜都在這裡。VALHUB 的其他功能無需帳戶即可使用。", storeDetail: "每日優惠與精選組合包", matchesDetail: "對戰紀錄、依特務與地圖的趨勢", leaderboardDetail: "各地區頂尖玩家" },
   agent: {
     role: { DUELIST: "決鬥者", INITIATOR: "先鋒", CONTROLLER: "控場者", SENTINEL: "哨衛", UNKNOWN: "特務" },
     slot: { Q: "Q", E: "E", C: "C", X: "絕招", PASSIVE: "被動" },
@@ -342,6 +344,10 @@ export const zhHant: Messages = {
     },
   },
   privacy: {
+    policy: "隱私權政策",
+    terms: "使用條款",
+    effective: "生效日期：{date}",
+    englishOnly: "本文件以英文顯示。",
     title: "隱私與資料",
     body: "VALHUB 保存的一切（最愛、準心、戰術、訓練紀錄、少量快取與 Riot 登入權杖）都只留在這支手機上。VALHUB 沒有伺服器。",
     riotData: "Riot 資料透過你自己的登入直接從 Riot 讀取，只會顯示給你。VALHUB 絕不會看到你的密碼。",

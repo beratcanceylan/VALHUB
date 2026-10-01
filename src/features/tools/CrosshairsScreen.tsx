@@ -55,7 +55,7 @@ function PresetCard({ preset, width }: Readonly<{ preset: CrosshairPresetRecord;
       <Animated.View
         style={{
           width,
-          borderRadius: t.radius.lg,
+          borderRadius: t.radius.md,
           borderCurve: "continuous",
           overflow: "hidden",
           borderWidth: t.borderWidth.hairline,

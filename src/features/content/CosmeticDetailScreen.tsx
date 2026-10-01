@@ -21,11 +21,10 @@ function Stage({ uri, label, portrait }: Readonly<{ uri: string | undefined; lab
   return (
     <View
       style={{
-        borderRadius: t.radius.lg,
+        borderRadius: t.radius.md,
         borderCurve: "continuous",
         overflow: "hidden",
         backgroundColor: t.colors.surfaceSunken,
-        experimental_backgroundImage: `radial-gradient(circle at center, ${t.colors.accentSubtle} 0%, ${t.colors.surfaceSunken} 75%)`,
         paddingVertical: t.space[5],
         paddingHorizontal: t.space[4],
       }}

@@ -1,1 +1,1 @@
-export { default } from "@/features/performance/PerformanceScreen";
+export { default } from "@/features/account/AccountScreen";

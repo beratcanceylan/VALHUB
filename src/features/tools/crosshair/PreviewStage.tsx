@@ -52,7 +52,7 @@ function HoldButton({ label, handlers, level }: Readonly<{ label: string; handle
         flex: 1,
         minHeight: t.touchTarget.min,
         paddingHorizontal: t.space[2],
-        borderRadius: t.radius.full,
+        borderRadius: t.radius.md,
         alignItems: "center",
         justifyContent: "center",
         borderWidth: t.borderWidth.thin,

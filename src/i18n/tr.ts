@@ -29,8 +29,8 @@ export const tr: Messages = {
   },
   tabs: {
     home: "Ana sayfa",
-    performance: "Performans",
-    learn: "Öğren",
+    guide: "Rehber",
+    account: "Hesap",
     library: "Kitaplık",
   },
   capability: {
@@ -61,6 +61,7 @@ export const tr: Messages = {
     connectTitle: "Kendi maçlarını gör",
     connectBody: "Maç geçmişi ve mağazan için Riot hesabını bağla. Geri kalan her şey bağlanmadan çalışır.",
     latestMatch: "Son maç",
+    news: "Son haberler",
   },
   performance: {
     title: "Performans",
@@ -79,7 +80,7 @@ export const tr: Messages = {
     matches: "Maçlar",
     byAgent: "Ajana göre",
     byMap: "Haritaya göre",
-    insufficientSample: "{n} maçtan az — kaba bir gösterge olarak değerlendir.",
+    insufficientSample: "{n} maçtan az, kaba bir gösterge olarak değerlendir.",
     leaderboard: "Sıralama tablosu",
     region: "Bölge",
     won: "Galibiyet",
@@ -118,11 +119,22 @@ export const tr: Messages = {
     platformStatus: "Servis durumu",
     allClear: "Bildirilmiş sorun yok.",
   },
-  learn: {
+  guide: {
     agents: "Ajanlar",
     maps: "Haritalar",
     weapons: "Silahlar",
     cosmetics: "Kozmetikler",
+    agentsCount: "{n} ajan",
+    mapsCount: "{n} harita",
+    weaponsCount: "{n} silah",
+    cosmeticsDetail: "Kaplamalar, paketler ve daha fazlası",
+  },
+  account: {
+    connectTitle: "Riot hesabını bağla",
+    connectBody: "Mağazan, maç geçmişin ve sıralama burada. VALHUB'un geri kalanı hesap olmadan çalışır.",
+    storeDetail: "Günlük teklifler ve öne çıkan paketler",
+    matchesDetail: "Maç geçmişi, ajan ve harita bazında eğilimler",
+    leaderboardDetail: "Bölgelere göre en iyi oyuncular",
   },
   agent: {
     role: { DUELIST: "Düellocu", INITIATOR: "Öncü", CONTROLLER: "Kontrol Uzmanı", SENTINEL: "Gözcü", UNKNOWN: "Ajan" },
@@ -286,7 +298,7 @@ export const tr: Messages = {
     mapScene: "Harita",
     imported: "Kod içe aktarıldı",
     create: "Nişangâh oluştur",
-    copied: "Kod kopyalandı — Ayarlar › Nişangâh › Profil Kodunu İçe Aktar'a yapıştır.",
+    copied: "Kod kopyalandı, Ayarlar › Nişangâh › Profil Kodunu İçe Aktar'a yapıştır.",
   },
   sensitivity: {
     title: "Hassasiyet",
@@ -307,7 +319,7 @@ export const tr: Messages = {
     start: "Başla",
     wait: "Bekle…",
     now: "Dokun!",
-    tooSoon: "Çok erken — değişimi bekle.",
+    tooSoon: "Çok erken, değişimi bekle.",
     attempt: "Deneme {n} / {total}",
     result: "{ms} ms",
     best: "En iyi",
@@ -336,7 +348,7 @@ export const tr: Messages = {
     recent: "Son aramalar",
     clearRecent: "Temizle",
     noResults: "“{q}” için sonuç yok",
-    hint: "Bir ajan, harita ya da silah dene veya birleştir — “jett ascent”.",
+    hint: "Bir ajan, harita ya da silah dene veya birleştir: “jett ascent”.",
     degraded: "Bazı kaynaklar yanıt vermedi; sonuçlar eksik olabilir.",
     groups: {
       agent: "Ajanlar",
@@ -380,6 +392,10 @@ export const tr: Messages = {
     },
   },
   privacy: {
+    policy: "Gizlilik politikası",
+    terms: "Kullanım şartları",
+    effective: "Yürürlük tarihi: {date}",
+    englishOnly: "Bu belge İngilizce gösterilmektedir.",
     title: "Gizlilik ve veriler",
     body: "VALHUB'ın sakladığı her şey (favoriler, nişangâhlar, stratejiler, antrenman geçmişi, küçük bir önbellek ve Riot giriş anahtarın) bu telefonda kalır. VALHUB sunucusu yoktur.",
     riotData: "Riot verileri kendi girişinle doğrudan Riot'tan okunur ve yalnızca sana gösterilir. VALHUB şifreni asla görmez.",

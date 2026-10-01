@@ -15,11 +15,12 @@ export default function AgentsScreen() {
   const agents = useAgents();
   const [role, setRole] = useState<AgentRole | undefined>(undefined);
   const list = useMemo(() => (agents.data ?? []).filter((a) => !role || a.role === role), [agents.data, role]);
-  const width = useColumnWidth(3, t.space[2]);
+  // Four across: a roster, not the three-card row.
+  const width = useColumnWidth(4, t.space[2]);
 
   return (
     <Screen>
-      <Stack.Screen options={{ title: tr("learn.agents") }} />
+      <Stack.Screen options={{ title: tr("guide.agents") }} />
       <ChipRow>
         <FilterChip label={tr("agent.filterAll")} selected={!role} onPress={() => setRole(undefined)} />
         {ROLES.map((r) => (
@@ -34,9 +35,7 @@ export default function AgentsScreen() {
               <MediaCard
                 key={a.id}
                 width={width}
-                aspectRatio={0.82}
                 imageUri={a.iconUrl ?? a.portraitUrl}
-                {...(a.gradient ? { gradient: a.gradient } : {})}
                 title={a.name}
                 subtitle={tr(`agent.role.${a.role}`)}
                 onPress={() => router.push(`/agents/${a.slug}`)}

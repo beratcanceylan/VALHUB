@@ -12,7 +12,7 @@ export function Modal({ visible, title, onClose, children }: Readonly<{ visible:
   return (
     <RNModal visible={visible} transparent animationType="fade" onRequestClose={onClose}>
       <View style={{ flex: 1, backgroundColor: t.colors.scrim, justifyContent: "center", padding: t.space[6] }}>
-        <View accessibilityViewIsModal style={{ backgroundColor: t.colors.surface, borderRadius: t.radius.lg + 4, borderCurve: "continuous", padding: t.space[5], gap: t.space[3], maxHeight: "90%" }}>
+        <View accessibilityViewIsModal style={{ backgroundColor: t.colors.surface, borderRadius: t.radius.lg, borderCurve: "continuous", padding: t.space[5], gap: t.space[3], maxHeight: "90%" }}>
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <Text variant="titleSm" weight="semibold" accessibilityRole="header" style={{ flex: 1 }} numberOfLines={3}>
               {title}

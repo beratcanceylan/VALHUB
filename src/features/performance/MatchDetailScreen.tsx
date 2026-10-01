@@ -100,7 +100,7 @@ function MatchHeader({ match, mapName }: Readonly<{ match: MatchDetail; mapName:
 function LineMetrics({ line }: Readonly<{ line: PlayerLine }>) {
   const t = useTheme();
   const { t: tr, formatNumber } = useT();
-  const orDash = (v: number | undefined, fmt: (n: number) => string) => (v !== undefined ? fmt(v) : "—");
+  const orDash = (v: number | undefined, fmt: (n: number) => string) => (v !== undefined ? fmt(v) : "-");
   return (
     <View style={{ flexDirection: "row", gap: t.space[3], marginTop: t.space[4] }}>
       <Metric label={tr("performance.kda")} value={`${line.player.kills}/${line.player.deaths}/${line.player.assists}`} />

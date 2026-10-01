@@ -10,7 +10,7 @@ export function Metric({ label, value, detail }: Readonly<{ label: string; value
       <Text variant="caption" color="textSecondary" label numberOfLines={2}>
         {label}
       </Text>
-      <Text variant="titleSm" weight="semibold" numeric numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
+      <Text variant="title" weight="semibold" numeric numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
         {value}
       </Text>
       {detail ? (

@@ -92,8 +92,8 @@ export function SearchInput({
         gap: t.space[2],
         minHeight: t.touchTarget.min,
         paddingHorizontal: t.space[3],
-        // Capsule search field (iOS 26 / Material 3 search bar).
-        borderRadius: t.radius.full,
+        borderRadius: t.radius.md,
+        borderCurve: "continuous",
         backgroundColor: t.colors.surfaceSunken,
       }}
     >
@@ -221,18 +221,17 @@ export function FilterChip({ label, selected, onPress }: Readonly<{ label: strin
         minHeight: 36,
         paddingHorizontal: t.space[3],
         justifyContent: "center",
-        // iOS uses capsule chips; Material 3 filter chips have 8dp corners.
-        borderRadius: IS_IOS ? t.radius.full : t.radius.sm,
+        borderRadius: t.radius.sm,
         borderWidth: t.borderWidth.thin,
-        borderColor: selected ? t.colors.accent : t.colors.border,
-        backgroundColor: selected ? t.colors.accentSubtle : t.colors.surface,
+        // Selected chips invert (solid ink) instead of a tinted fill or a leading check mark.
+        borderColor: selected ? t.colors.textPrimary : t.colors.border,
+        backgroundColor: selected ? t.colors.textPrimary : t.colors.surface,
         flexDirection: "row",
         alignItems: "center",
         gap: t.space[1],
       }}
     >
-      {selected ? <Icon name="check" size={14} color="accent" /> : null}
-      <Text variant="bodySm" weight="medium" color={selected ? "accent" : "textPrimary"}>
+      <Text variant="bodySm" weight="medium" color={selected ? "textInverse" : "textPrimary"}>
         {label}
       </Text>
     </Pressable>

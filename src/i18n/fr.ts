@@ -27,7 +27,7 @@ export const fr: Messages = {
     search: "Rechercher",
     settings: "Paramètres",
   },
-  tabs: { home: "Accueil", performance: "Performances", learn: "Apprendre", library: "Bibliothèque" },
+  tabs: { home: "Accueil", guide: "Guide", account: "Compte", library: "Bibliothèque" },
   capability: {
     NOT_CONFIGURED: "Pas encore disponible dans cette version.",
     POLICY_BLOCKED: "Indisponible : la politique développeur de Riot ne l'autorise pas via une API approuvée.",
@@ -52,6 +52,7 @@ export const fr: Messages = {
     connectTitle: "Consulte tes propres parties",
     connectBody: "Connecte ton compte Riot pour ton historique de parties et ta boutique. Tout le reste fonctionne sans.",
     latestMatch: "Dernière partie",
+    news: "Dernières actus",
   },
   performance: {
     title: "Performances",
@@ -109,7 +110,8 @@ export const fr: Messages = {
     platformStatus: "État du service",
     allClear: "Aucun incident signalé.",
   },
-  learn: { agents: "Agents", maps: "Cartes", weapons: "Armes", cosmetics: "Cosmétiques" },
+  guide: { agents: "Agents", maps: "Cartes", weapons: "Armes", cosmetics: "Cosmétiques", agentsCount: "{n} agents", mapsCount: "{n} cartes", weaponsCount: "{n} armes", cosmeticsDetail: "Skins, packs et plus" },
+  account: { connectTitle: "Connecte ton compte Riot", connectBody: "Ta boutique, ton historique de parties et le classement sont ici. Le reste de VALHUB fonctionne sans compte.", storeDetail: "Offres du jour et packs à la une", matchesDetail: "Historique et tendances par agent et carte", leaderboardDetail: "Meilleurs joueurs par région" },
   agent: {
     role: { DUELIST: "Duelliste", INITIATOR: "Initiateur", CONTROLLER: "Contrôleur", SENTINEL: "Sentinelle", UNKNOWN: "Agent" },
     slot: { Q: "Q", E: "E", C: "C", X: "Ultime", PASSIVE: "Passif" },
@@ -342,6 +344,10 @@ export const fr: Messages = {
     },
   },
   privacy: {
+    policy: "Politique de confidentialité",
+    terms: "Conditions d’utilisation",
+    effective: "En vigueur au {date}",
+    englishOnly: "Ce document est affiché en anglais.",
     title: "Confidentialité et données",
     body: "Tout ce que VALHUB conserve (favoris, réticules, stratégies, historique d'entraînement, un petit cache et ton jeton de connexion Riot) reste sur ce téléphone. Il n'y a pas de serveur VALHUB.",
     riotData: "Les données Riot sont lues directement chez Riot avec ta propre connexion et ne sont montrées qu'à toi. VALHUB ne voit jamais ton mot de passe.",

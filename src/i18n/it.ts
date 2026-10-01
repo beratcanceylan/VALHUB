@@ -27,7 +27,7 @@ export const it: Messages = {
     search: "Cerca",
     settings: "Impostazioni",
   },
-  tabs: { home: "Home", performance: "Prestazioni", learn: "Impara", library: "Libreria" },
+  tabs: { home: "Home", guide: "Guida", account: "Account", library: "Libreria" },
   capability: {
     NOT_CONFIGURED: "Non ancora disponibile in questa versione.",
     POLICY_BLOCKED: "Non disponibile: la policy per sviluppatori di Riot non lo consente tramite un'API approvata.",
@@ -52,6 +52,7 @@ export const it: Messages = {
     connectTitle: "Guarda le tue partite",
     connectBody: "Collega il tuo account Riot per lo storico partite e il tuo negozio. Tutto il resto funziona anche senza.",
     latestMatch: "Ultima partita",
+    news: "Ultime notizie",
   },
   performance: {
     title: "Prestazioni",
@@ -109,7 +110,8 @@ export const it: Messages = {
     platformStatus: "Stato del servizio",
     allClear: "Nessun problema segnalato.",
   },
-  learn: { agents: "Agenti", maps: "Mappe", weapons: "Armi", cosmetics: "Cosmetici" },
+  guide: { agents: "Agenti", maps: "Mappe", weapons: "Armi", cosmetics: "Cosmetici", agentsCount: "{n} agenti", mapsCount: "{n} mappe", weaponsCount: "{n} armi", cosmeticsDetail: "Skin, bundle e altro" },
+  account: { connectTitle: "Collega il tuo account Riot", connectBody: "Negozio, cronologia partite e classifica sono qui. Il resto di VALHUB funziona senza account.", storeDetail: "Offerte giornaliere e bundle in evidenza", matchesDetail: "Cronologia e tendenze per agente e mappa", leaderboardDetail: "Migliori giocatori per regione" },
   agent: {
     role: { DUELIST: "Duellante", INITIATOR: "Iniziatore", CONTROLLER: "Controllore", SENTINEL: "Sentinella", UNKNOWN: "Agente" },
     slot: { Q: "Q", E: "E", C: "C", X: "Suprema", PASSIVE: "Passiva" },
@@ -342,6 +344,10 @@ export const it: Messages = {
     },
   },
   privacy: {
+    policy: "Informativa sulla privacy",
+    terms: "Termini di utilizzo",
+    effective: "In vigore dal {date}",
+    englishOnly: "Questo documento è mostrato in inglese.",
     title: "Privacy e dati",
     body: "Tutto ciò che VALHUB conserva (preferiti, mirini, strategie, storico allenamenti, una piccola cache e il token di accesso Riot) resta su questo telefono. Non esiste un server VALHUB.",
     riotData: "I dati Riot vengono letti direttamente da Riot con il tuo accesso e mostrati solo a te. VALHUB non vede mai la tua password.",

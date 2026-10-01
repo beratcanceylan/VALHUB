@@ -27,8 +27,8 @@ export const en = {
   },
   tabs: {
     home: "Home",
-    performance: "Performance",
-    learn: "Learn",
+    guide: "Guide",
+    account: "Account",
     library: "Library",
   },
   capability: {
@@ -59,6 +59,7 @@ export const en = {
     connectTitle: "See your own matches",
     connectBody: "Connect your Riot account to see match history and trends. Everything else works without it.",
     latestMatch: "Latest match",
+    news: "Latest news",
   },
   performance: {
     title: "Performance",
@@ -77,7 +78,7 @@ export const en = {
     matches: "Matches",
     byAgent: "By agent",
     byMap: "By map",
-    insufficientSample: "Fewer than {n} matches — treat as a rough signal.",
+    insufficientSample: "Fewer than {n} matches, treat as a rough signal.",
     leaderboard: "Leaderboard",
     region: "Region",
     won: "Win",
@@ -116,11 +117,22 @@ export const en = {
     platformStatus: "Service status",
     allClear: "No incidents reported.",
   },
-  learn: {
+  guide: {
     agents: "Agents",
     maps: "Maps",
     weapons: "Weapons",
     cosmetics: "Cosmetics",
+    agentsCount: "{n} agents",
+    mapsCount: "{n} maps",
+    weaponsCount: "{n} weapons",
+    cosmeticsDetail: "Skins, bundles and more",
+  },
+  account: {
+    connectTitle: "Connect your Riot account",
+    connectBody: "Your store, match history and leaderboard live here. Everything else in VALHUB works without an account.",
+    storeDetail: "Daily offers and featured bundles",
+    matchesDetail: "Match history and trends by agent and map",
+    leaderboardDetail: "Top ranked players by region",
   },
   agent: {
     role: { DUELIST: "Duelist", INITIATOR: "Initiator", CONTROLLER: "Controller", SENTINEL: "Sentinel", UNKNOWN: "Agent" },
@@ -284,7 +296,7 @@ export const en = {
     mapScene: "Map",
     imported: "Code imported",
     create: "Create a crosshair",
-    copied: "Code copied — paste it in Settings › Crosshair › Import Profile Code.",
+    copied: "Code copied, paste it in Settings › Crosshair › Import Profile Code.",
   },
   sensitivity: {
     title: "Sensitivity",
@@ -305,7 +317,7 @@ export const en = {
     start: "Start",
     wait: "Wait for it…",
     now: "Tap!",
-    tooSoon: "Too soon — wait for the change.",
+    tooSoon: "Too soon, wait for the change.",
     attempt: "Attempt {n} of {total}",
     result: "{ms} ms",
     best: "Best",
@@ -334,7 +346,7 @@ export const en = {
     recent: "Recent searches",
     clearRecent: "Clear",
     noResults: "No results for “{q}”",
-    hint: "Try an agent, a map, a weapon, or combine them — “jett ascent”.",
+    hint: "Try an agent, a map, a weapon, or combine them: “jett ascent”.",
     degraded: "Some sources didn't respond; results may be incomplete.",
     groups: {
       agent: "Agents",
@@ -378,6 +390,10 @@ export const en = {
     },
   },
   privacy: {
+    policy: "Privacy policy",
+    terms: "Terms of use",
+    effective: "Effective {date}",
+    englishOnly: "This document is shown in English.",
     title: "Privacy & data",
     body: "Everything VALHUB keeps (favorites, crosshairs, strategies, training history, a small cache and your Riot sign-in token) stays on this phone. There is no VALHUB server.",
     riotData: "Riot data is read straight from Riot with your own sign-in and only shown to you. VALHUB never sees your password.",

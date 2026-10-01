@@ -14,7 +14,7 @@ function buttonOpacity(disabled: boolean, pressed: boolean, variant: Variant): n
 }
 
 function iconButtonBackground(t: Theme, selected: boolean | undefined, pressed: boolean): string {
-  if (selected) return t.colors.accentSubtle;
+  if (selected) return t.colors.surfaceSunken;
   return pressed ? t.colors.surfaceSunken : "transparent";
 }
 
@@ -54,8 +54,7 @@ export function Button({ label, variant = "primary", icon, loading, size = "md",
           minHeight: size === "md" ? t.touchTarget.min + 6 : 36,
           paddingHorizontal: size === "md" ? t.space[5] : t.space[4],
           paddingVertical: t.space[2],
-          // Capsule buttons: iOS 26 bordered/prominent style and Material 3 common buttons.
-          borderRadius: t.radius.full,
+          borderRadius: t.radius.md,
           borderCurve: "continuous",
           backgroundColor: pressed && variant === "primary" ? t.colors.accentPressed : bg[variant],
           borderWidth: variant === "secondary" ? t.borderWidth.thin : 0,
@@ -115,7 +114,7 @@ export function IconButton({
         height: side,
         alignItems: "center",
         justifyContent: "center",
-        borderRadius: t.radius.full,
+        borderRadius: t.radius.md,
         backgroundColor: iconButtonBackground(t, selected, pressed),
         opacity: disabled ? 0.4 : 1,
       })}

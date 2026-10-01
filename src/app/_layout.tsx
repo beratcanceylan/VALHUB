@@ -4,17 +4,23 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { DarkTheme, DefaultTheme, Stack, ThemeProvider as NavigationThemeProvider, router } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import * as SplashScreen from "expo-splash-screen";
+import { useFonts } from "expo-font";
 import * as SystemUI from "expo-system-ui";
 import { SessionProvider, useSession } from "@/auth/session";
 import { ToastProvider } from "@/components/ui";
 import { createQueryClient, useBootstrap } from "@/data/queries";
 import { setAllowedMediaHosts } from "@/data/media-policy";
 import { evictQueryCache } from "@/data/cache/db";
+import { startupFonts } from "@/design/fonts";
 import { AppearanceProvider } from "@/design/preference";
 import { useTheme } from "@/design/theme";
-import { I18nProvider, useT } from "@/i18n";
+import { I18nProvider } from "@/i18n";
 import { safeNotificationPath } from "@/notifications";
 import { getNotifications } from "@/notifications/native";
+
+// Held until the icon font is ready so icons never pop in after the first frame.
+SplashScreen.preventAutoHideAsync().catch(() => undefined);
 
 function BootstrapEffects() {
   const { signedIn } = useSession();
@@ -57,7 +63,6 @@ function useNavigationTheme() {
 
 function Shell() {
   const t = useTheme();
-  const { t: tr } = useT();
   const navigationTheme = useNavigationTheme();
   useEffect(() => {
     SystemUI.setBackgroundColorAsync(t.colors.background).catch(() => undefined);
@@ -78,7 +83,6 @@ function Shell() {
         }}
       >
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="search" options={{ title: tr("search.title"), animation: "fade" }} />
         <Stack.Screen name="auth/riot" options={{ title: "", presentation: "modal" }} />
       </Stack>
     </NavigationThemeProvider>
@@ -87,6 +91,13 @@ function Shell() {
 
 export default function RootLayout() {
   const [queryClient] = useState(createQueryClient);
+  const [fontsLoaded, fontError] = useFonts(startupFonts);
+  const ready = fontsLoaded || !!fontError;
+  useEffect(() => {
+    if (ready) SplashScreen.hideAsync().catch(() => undefined);
+  }, [ready]);
+  // A failed load never blocks startup; SymbolView loads the font again on demand.
+  if (!ready) return null;
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>

@@ -13,6 +13,7 @@ export interface TextProps extends RNTextProps {
   align?: TextStyle["textAlign"];
 }
 
+/** Platform type only (SF / Roboto): no downloaded faces. */
 export function Text({ variant = "body", color = "textPrimary", weight = "regular", numeric, label, align, style, ...rest }: Readonly<TextProps>) {
   const t = useTheme();
   return (

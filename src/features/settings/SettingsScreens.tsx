@@ -27,7 +27,6 @@ export function SettingsScreen() {
   const t = useTheme();
   const { t: tr, locale } = useT();
   const { preference, setThemePreference } = useAppearance();
-  const session = useSession();
   const accountTitle = useAccountTitle();
 
   return (
@@ -43,20 +42,22 @@ export function SettingsScreen() {
 
       <SectionHeader title={tr("settings.general")} />
       <RowGroup>
-        <ListRow icon="learn" title={tr("settings.language")} meta={LOCALE_NAMES[locale]} onPress={() => router.push("/settings/language")} />
+        <ListRow icon="language" title={tr("settings.language")} meta={LOCALE_NAMES[locale]} onPress={() => router.push("/settings/language")} />
         <ListRow icon="bell" title={tr("settings.notifications")} onPress={() => router.push("/settings/notifications")} />
-        <ListRow icon="user" title={tr("settings.privacy")} onPress={() => router.push("/settings/privacy")} />
+        <ListRow icon="privacy" title={tr("settings.privacy")} onPress={() => router.push("/settings/privacy")} />
         <ListRow icon="layers" title={tr("settings.cache")} onPress={() => router.push("/settings/cache")} />
       </RowGroup>
 
       <SectionHeader title={tr("settings.account")} />
       <RowGroup>
-        <ListRow icon="user" title={accountTitle} chevron={false} />
-        {session.signedIn ? <ListRow title={tr("settings.signOut")} onPress={() => void session.signOut()} /> : null}
+        {/* Sign-in, sign-out and every account feature live on the Account tab. */}
+        <ListRow icon="account" title={accountTitle} onPress={() => router.navigate("/account")} />
       </RowGroup>
 
       <SectionHeader title={tr("settings.about")} />
       <RowGroup>
+        <ListRow icon="privacy" title={tr("privacy.policy")} onPress={() => router.push("/legal/privacy")} />
+        <ListRow icon="document" title={tr("privacy.terms")} onPress={() => router.push("/legal/terms")} />
         <ListRow title={tr("settings.version", { v: Constants.expoConfig?.version ?? "0" })} chevron={false} />
       </RowGroup>
       {/* Riot's fan-content policy requires this notice once in the app. */}
@@ -135,13 +136,14 @@ export function NotificationSettingsScreen() {
 }
 
 export function PrivacyScreen() {
+  const theme = useTheme();
   const { t } = useT();
   const [analyticsEnabled, setAnalyticsEnabled] = useState(() => getPreference("analyticsEnabled", true));
   return (
     <Screen>
       <Stack.Screen options={{ title: t("privacy.title") }} />
       <Text>{t("privacy.body")}</Text>
-      <Text variant="bodySm" color="textSecondary" style={{ marginTop: 12 }}>
+      <Text variant="bodySm" color="textSecondary" style={{ marginTop: theme.space[3] }}>
         {t("privacy.riotData")}
       </Text>
       <SectionHeader title={t("privacy.analytics")} />
@@ -156,6 +158,11 @@ export function PrivacyScreen() {
           }}
         />
       </Surface>
+      <View style={{ height: theme.space[6] }} />
+      <RowGroup>
+        <ListRow icon="privacy" title={t("privacy.policy")} onPress={() => router.push("/legal/privacy")} />
+        <ListRow icon="document" title={t("privacy.terms")} onPress={() => router.push("/legal/terms")} />
+      </RowGroup>
     </Screen>
   );
 }

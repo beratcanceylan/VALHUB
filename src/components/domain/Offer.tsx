@@ -1,8 +1,6 @@
-import Animated, { FadeInDown } from "react-native-reanimated";
 import { router } from "expo-router";
 import type { StoreOffer } from "@valhub/domain";
 import { ShowcaseCard } from "@/components/ui";
-import { useTheme } from "@/design/theme";
 import { useT } from "@/i18n";
 import { Price } from "./Price";
 
@@ -19,20 +17,17 @@ export function OfferPrice({ offer }: Readonly<{ offer: Pick<StoreOffer, "cost" 
   );
 }
 
-export function OfferCard({ offer, index, width }: Readonly<{ offer: StoreOffer; index: number; width: number }>) {
-  const t = useTheme();
+export function OfferCard({ offer, width }: Readonly<{ offer: StoreOffer; width: number }>) {
   const { t: tr } = useT();
   const onPress = openOffer(offer);
   return (
-    <Animated.View entering={FadeInDown.delay(index * 60).duration(t.motion.slow)}>
-      <ShowcaseCard
-        width={width}
-        imageUri={offer.imageUrl}
-        imageAspectRatio={1.7}
-        title={offer.name ?? tr("store.newItem")}
-        meta={<OfferPrice offer={offer} />}
-        {...(onPress ? { onPress } : {})}
-      />
-    </Animated.View>
+    <ShowcaseCard
+      width={width}
+      imageUri={offer.imageUrl}
+      imageAspectRatio={1.7}
+      title={offer.name ?? tr("store.newItem")}
+      meta={<OfferPrice offer={offer} />}
+      {...(onPress ? { onPress } : {})}
+    />
   );
 }

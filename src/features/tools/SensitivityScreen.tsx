@@ -67,8 +67,8 @@ export default function SensitivityScreen() {
       <SectionHeader title={SENSITIVITY_GAMES[from].name} />
       <Surface padded>
         <View style={{ flexDirection: "row", gap: t.space[3] }}>
-          <Metric label={tr("sensitivity.edpi")} value={dpi && sens ? formatNumber(edpi(dpi, sens), 1) : "—"} />
-          <Metric label={tr("sensitivity.cm360")} value={dpi && sens ? formatNumber(cmPer360(from, dpi, sens), 1) : "—"} />
+          <Metric label={tr("sensitivity.edpi")} value={dpi && sens ? formatNumber(edpi(dpi, sens), 1) : "-"} />
+          <Metric label={tr("sensitivity.cm360")} value={dpi && sens ? formatNumber(cmPer360(from, dpi, sens), 1) : "-"} />
         </View>
       </Surface>
 
@@ -106,7 +106,7 @@ export default function SensitivityScreen() {
         ))}
       </ChipRow>
       <Surface padded style={{ marginTop: t.space[3] }}>
-        <Metric label={tr("sensitivity.result")} value={converted !== undefined ? String(converted) : "—"} detail={SENSITIVITY_GAMES[to].name} />
+        <Metric label={tr("sensitivity.result")} value={converted !== undefined ? String(converted) : "-"} detail={SENSITIVITY_GAMES[to].name} />
         {converted !== undefined ? (
           <Button
             label={tr("common.copy")}
@@ -134,7 +134,7 @@ export default function SensitivityScreen() {
         {...(newDpi === undefined ? { error: tr("sensitivity.invalid") } : {})}
       />
       <Surface padded style={{ marginTop: t.space[3] }}>
-        <Metric label={tr("sensitivity.sens")} value={forNewDpi !== undefined ? String(forNewDpi) : "—"} detail={SENSITIVITY_GAMES[from].name} />
+        <Metric label={tr("sensitivity.sens")} value={forNewDpi !== undefined ? String(forNewDpi) : "-"} detail={SENSITIVITY_GAMES[from].name} />
       </Surface>
 
       <Button

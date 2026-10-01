@@ -19,11 +19,12 @@ export const space = {
   12: 48,
 } as const;
 
+/** Restrained corners. `full` is only for true circles (avatars, dots, switches), never for buttons or chips. */
 export const radius = {
-  xs: 4,
-  sm: 8,
-  md: 12,
-  lg: 16,
+  xs: 2,
+  sm: 4,
+  md: 6,
+  lg: 10,
   full: 999,
 } as const;
 
@@ -118,33 +119,27 @@ const palette = {
   ink100: "#ECEEF0",
   ink50: "#F6F7F8",
   white: "#FFFFFF",
+  /** Light-scheme paper: warm off-whites so no screen is a bare #FFF sheet. */
+  paper100: "#EFEDE8",
+  paper50: "#F7F6F2",
+  paper0: "#FBFAF7",
 
   signal700: "#B8321F",
   signal600: "#D63F28",
   signal500: "#EE5436",
   signal400: "#F77A5F",
-  signal100: "#FDE6E0",
-  signal900: "#3A1811",
 
   green600: "#1F8A5B",
   green400: "#4CC38A",
-  green100: "#DDF3E8",
-  green900: "#10291D",
 
   red600: "#C62F3E",
   red400: "#F06A76",
-  red100: "#FBE2E5",
-  red900: "#33141A",
 
   amber600: "#A86A00",
   amber400: "#E9A93A",
-  amber100: "#FBEFD6",
-  amber900: "#2E2208",
 
   blue600: "#2F63C9",
   blue400: "#6F9BF0",
-  blue100: "#E1EAFB",
-  blue900: "#121D33",
 } as const;
 
 export interface SemanticColors {
@@ -185,30 +180,34 @@ export interface SemanticColors {
   mediaScrimClear: string;
 }
 
+/**
+ * "Subtle" tones are deliberately neutral (no pastel tints): status is carried by the colored
+ * text/icon on top, never by a washed-out colored fill.
+ */
 export const lightColors: SemanticColors = {
-  background: palette.ink50,
-  surface: palette.white,
-  surfaceSunken: palette.ink100,
-  surfaceRaised: palette.white,
+  background: palette.paper100,
+  surface: palette.paper0,
+  surfaceSunken: palette.ink150,
+  surfaceRaised: palette.paper50,
   border: palette.ink150,
   borderStrong: palette.ink300,
   divider: palette.ink150,
   textPrimary: palette.ink950,
   textSecondary: palette.ink600,
   textTertiary: palette.ink500,
-  textInverse: palette.white,
+  textInverse: palette.paper0,
   accent: palette.signal600,
   accentPressed: palette.signal700,
-  accentSubtle: palette.signal100,
+  accentSubtle: palette.ink150,
   onAccent: palette.white,
   positive: palette.green600,
-  positiveSubtle: palette.green100,
+  positiveSubtle: palette.ink150,
   negative: palette.red600,
-  negativeSubtle: palette.red100,
+  negativeSubtle: palette.ink150,
   warning: palette.amber600,
-  warningSubtle: palette.amber100,
+  warningSubtle: palette.ink150,
   info: palette.blue600,
-  infoSubtle: palette.blue100,
+  infoSubtle: palette.ink150,
   ally: palette.blue600,
   enemy: palette.red600,
   focusRing: palette.blue600,
@@ -234,16 +233,16 @@ export const darkColors: SemanticColors = {
   textInverse: palette.ink950,
   accent: palette.signal500,
   accentPressed: palette.signal400,
-  accentSubtle: palette.signal900,
+  accentSubtle: palette.ink800,
   onAccent: palette.white,
   positive: palette.green400,
-  positiveSubtle: palette.green900,
+  positiveSubtle: palette.ink800,
   negative: palette.red400,
-  negativeSubtle: palette.red900,
+  negativeSubtle: palette.ink800,
   warning: palette.amber400,
-  warningSubtle: palette.amber900,
+  warningSubtle: palette.ink800,
   info: palette.blue400,
-  infoSubtle: palette.blue900,
+  infoSubtle: palette.ink800,
   ally: palette.blue400,
   enemy: palette.red400,
   focusRing: palette.blue400,

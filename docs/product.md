@@ -5,12 +5,15 @@ This document replaces the superseded server-based specification and migration p
 ## Product
 
 VALHUB is a VALORANT reference and improvement app for iOS and Android. The four main
-tabs are Home, Performance, Learn and Library. It runs on-device without a separately
-deployed VALHUB backend.
+tabs are Home, Guide, Library and Account, plus Search, which every platform renders
+apart from the main group (iOS: the system `role="search"` tab, a separate Liquid Glass
+control on iOS 26+; Android: the last item of the Material bottom navigation). It
+runs on-device without a separately deployed VALHUB backend.
 
-- Home: recent match, account connection, official news, saved work and quick tools.
-- Performance: profile/rank, match history/detail, leaderboard and platform status.
-- Learn: agents/abilities, maps/callouts, weapons and cosmetics, with remote media.
+- Home: official news and quick tools. No account-dependent content.
+- Guide: agents/abilities, maps/callouts, weapons and cosmetics, with remote media.
+- Account: every Riot-account feature in one place — sign-in/out, profile/rank, personal
+  store, match history/detail, leaderboard — plus platform status.
 - Library: crosshairs, strategy boards, cosmetic wishlist, favorite agents and tools.
 - Tools: crosshair import/edit/export, sensitivity conversion and reaction practice.
 - Settings: theme, language, reminders, privacy/data management and attribution.
@@ -51,6 +54,10 @@ unsupported records may remain in storage without UI entry points.
 - Use approved media hosts. Stream videos without downloading or caching them.
 - Preserve source attribution, wiki license attribution and the Riot disclaimer.
 - Use semantic theme tokens, shared primitives, accessible labels and touch targets.
+- Follow `docs/design.md`: its banned list (gradients, web icon packs, glass, shadows,
+  capsules, pastels, downloaded fonts, em dashes in copy, ...) is enforced in review.
+- Keep the in-app privacy policy and terms of use (`src/legal/documents.ts`) in sync with
+  actual data handling.
 - English/Turkish catalogs must have matching keys and placeholders. Other configured
   locales fall back to English until translated.
 - Store/training reminders are local, opt-in and permission-dependent.

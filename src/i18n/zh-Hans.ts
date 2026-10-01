@@ -27,7 +27,7 @@ export const zhHans: Messages = {
     search: "搜索",
     settings: "设置",
   },
-  tabs: { home: "首页", performance: "战绩", learn: "学习", library: "收藏" },
+  tabs: { home: "首页", guide: "指南", account: "账户", library: "收藏" },
   capability: {
     NOT_CONFIGURED: "此版本暂不支持。",
     POLICY_BLOCKED: "不可用：Riot 开发者政策不允许通过已批准的 API 提供此功能。",
@@ -52,6 +52,7 @@ export const zhHans: Messages = {
     connectTitle: "查看你的对局",
     connectBody: "关联 Riot 账户即可查看对局记录和你的商店。其他功能无需关联即可使用。",
     latestMatch: "最近对局",
+    news: "最新资讯",
   },
   performance: {
     title: "战绩",
@@ -109,7 +110,8 @@ export const zhHans: Messages = {
     platformStatus: "服务状态",
     allClear: "暂无已报告的问题。",
   },
-  learn: { agents: "特工", maps: "地图", weapons: "武器", cosmetics: "外观" },
+  guide: { agents: "特工", maps: "地图", weapons: "武器", cosmetics: "外观", agentsCount: "{n} 名特工", mapsCount: "{n} 张地图", weaponsCount: "{n} 种武器", cosmeticsDetail: "皮肤、套装等" },
+  account: { connectTitle: "关联 Riot 账户", connectBody: "你的商店、比赛记录和排行榜都在这里。VALHUB 的其他功能无需账户即可使用。", storeDetail: "每日优惠与精选套装", matchesDetail: "比赛记录、按特工和地图的趋势", leaderboardDetail: "各地区顶尖玩家" },
   agent: {
     role: { DUELIST: "决斗者", INITIATOR: "先锋", CONTROLLER: "控场者", SENTINEL: "哨卫", UNKNOWN: "特工" },
     slot: { Q: "Q", E: "E", C: "C", X: "终极技能", PASSIVE: "被动" },
@@ -342,6 +344,10 @@ export const zhHans: Messages = {
     },
   },
   privacy: {
+    policy: "隐私政策",
+    terms: "使用条款",
+    effective: "生效日期：{date}",
+    englishOnly: "本文件以英文显示。",
     title: "隐私与数据",
     body: "VALHUB 保存的一切（收藏、准星、战术、训练记录、少量缓存和 Riot 登录令牌）都只留在这部手机上。VALHUB 没有服务器。",
     riotData: "Riot 数据通过你自己的登录直接从 Riot 读取，只展示给你。VALHUB 绝不会看到你的密码。",

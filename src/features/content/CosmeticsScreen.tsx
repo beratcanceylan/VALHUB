@@ -84,7 +84,7 @@ export function CosmeticsScreen() {
 
   return (
     <View style={{ flex: 1, backgroundColor: t.colors.background }}>
-      <Stack.Screen options={{ title: tr("learn.cosmetics") }} />
+      <Stack.Screen options={{ title: tr("guide.cosmetics") }} />
       <View style={{ paddingHorizontal: t.space[4], paddingTop: t.space[2], gap: t.space[2] }}>
         <SearchInput label={tr("cosmetic.searchPlaceholder")} placeholder={tr("cosmetic.searchPlaceholder")} value={q} onChangeText={setQ} />
         <ChipRow>

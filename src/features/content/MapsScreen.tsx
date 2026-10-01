@@ -11,7 +11,7 @@ export default function MapsScreen() {
   const maps = useMaps();
   return (
     <Screen>
-      <Stack.Screen options={{ title: t("learn.maps") }} />
+      <Stack.Screen options={{ title: t("guide.maps") }} />
       <QueryView query={maps}>
         {(list) => {
           const standard = list.filter((m) => m.isStandard);

@@ -27,7 +27,7 @@ export const ja: Messages = {
     search: "検索",
     settings: "設定",
   },
-  tabs: { home: "ホーム", performance: "成績", learn: "学ぶ", library: "ライブラリ" },
+  tabs: { home: "ホーム", guide: "ガイド", account: "アカウント", library: "ライブラリ" },
   capability: {
     NOT_CONFIGURED: "このバージョンではまだ利用できません。",
     POLICY_BLOCKED: "利用不可：Riotの開発者ポリシーにより、承認済みAPIでは提供できません。",
@@ -52,6 +52,7 @@ export const ja: Messages = {
     connectTitle: "自分の試合を見る",
     connectBody: "Riotアカウントを連携すると、試合履歴とストアを確認できます。それ以外の機能は連携なしで使えます。",
     latestMatch: "最新の試合",
+    news: "最新ニュース",
   },
   performance: {
     title: "成績",
@@ -109,7 +110,8 @@ export const ja: Messages = {
     platformStatus: "サービス状況",
     allClear: "報告されている問題はありません。",
   },
-  learn: { agents: "エージェント", maps: "マップ", weapons: "武器", cosmetics: "コスメティック" },
+  guide: { agents: "エージェント", maps: "マップ", weapons: "武器", cosmetics: "コスメティック", agentsCount: "エージェント{n}体", mapsCount: "マップ{n}個", weaponsCount: "武器{n}種", cosmeticsDetail: "スキン、バンドルなど" },
+  account: { connectTitle: "Riotアカウントを連携", connectBody: "ストア、試合履歴、リーダーボードはここにあります。VALHUBのその他の機能はアカウントなしで使えます。", storeDetail: "日替わりオファーと注目バンドル", matchesDetail: "試合履歴、エージェント・マップ別の傾向", leaderboardDetail: "地域別トッププレイヤー" },
   agent: {
     role: { DUELIST: "デュエリスト", INITIATOR: "イニシエーター", CONTROLLER: "コントローラー", SENTINEL: "センチネル", UNKNOWN: "エージェント" },
     slot: { Q: "Q", E: "E", C: "C", X: "アルティメット", PASSIVE: "パッシブ" },
@@ -342,6 +344,10 @@ export const ja: Messages = {
     },
   },
   privacy: {
+    policy: "プライバシーポリシー",
+    terms: "利用規約",
+    effective: "施行日：{date}",
+    englishOnly: "この文書は英語で表示されます。",
     title: "プライバシーとデータ",
     body: "VALHUBが保存するもの（お気に入り、クロスヘア、作戦、トレーニング履歴、小さなキャッシュ、Riotのサインイントークン）はすべてこの端末に残ります。VALHUBのサーバーはありません。",
     riotData: "Riotのデータはあなた自身のサインインでRiotから直接読み込まれ、あなたにだけ表示されます。VALHUBがパスワードを見ることはありません。",

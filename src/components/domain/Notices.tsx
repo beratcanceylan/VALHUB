@@ -9,7 +9,7 @@ export function CapabilityNotice({ state, title, body, action }: Readonly<{ stat
   const t = useTheme();
   const { t: tr } = useT();
   return (
-    <View style={{ borderWidth: t.borderWidth.thin, borderColor: t.colors.border, borderRadius: t.radius.md, padding: t.space[4], gap: t.space[2], backgroundColor: t.colors.surface }}>
+    <View style={{ borderWidth: t.borderWidth.hairline, borderColor: t.colors.border, borderRadius: t.radius.md, padding: t.space[4], gap: t.space[2], backgroundColor: t.colors.surface }}>
       <View style={{ flexDirection: "row", gap: t.space[2], alignItems: "center" }}>
         <Icon name="alert" size={18} color="textSecondary" />
         <Text weight="semibold" style={{ flex: 1 }}>

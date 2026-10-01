@@ -1,6 +1,6 @@
 import { Redirect } from "expo-router";
 
-/** `valhub://player` resolves to the Performance tab (the player overview). */
+/** `valhub://player` resolves to the Account tab, home of everything tied to a Riot account. */
 export default function PlayerRedirect() {
-  return <Redirect href="/performance" />;
+  return <Redirect href="/account" />;
 }

@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
-import { View } from "react-native";
-import { router } from "expo-router";
+import { useEffect, useRef, useState } from "react";
+import { Platform, View } from "react-native";
+import { Stack, router } from "expo-router";
+import type { SearchBarCommands } from "react-native-screens";
 import type { SearchResult } from "@valhub/domain";
 import { analytics } from "@/analytics";
 import { EmptyState, ErrorState, InlineError, ListRow, RemoteImage, RowGroup, Screen, SearchInput, SectionHeader, SkeletonRows, Text } from "@/components/ui";
@@ -109,10 +110,13 @@ function SearchResults({ query, search }: Readonly<{ query: string; search: Retu
   );
 }
 
+const IS_IOS = Platform.OS === "ios";
+
 export default function SearchScreen() {
   const { t: tr } = useT();
   const [query, setQuery] = useState("");
   const [debounced, setDebounced] = useState("");
+  const searchBar = useRef<SearchBarCommands>(null);
   useEffect(() => {
     const id = setTimeout(() => setDebounced(query.trim()), 250);
     return () => clearTimeout(id);
@@ -125,10 +129,32 @@ export default function SearchScreen() {
     }
   }, [search.data, debounced]);
 
+  const pickRecent = (q: string) => {
+    searchBar.current?.setText(q);
+    setQuery(q);
+  };
+
   return (
     <Screen>
-      <SearchInput label={tr("search.title")} placeholder={tr("search.placeholder")} value={query} onChangeText={setQuery} autoFocus onSubmitEditing={() => recentSearches.add(query)} />
-      {debounced.length < 2 ? <RecentSearches onPick={setQuery} /> : <SearchResults query={debounced} search={search} />}
+      {IS_IOS ? (
+        // The system search field: on iOS 26 it merges into the detached Liquid Glass search tab.
+        <Stack.Screen
+          options={{
+            headerSearchBarOptions: {
+              ref: searchBar,
+              placeholder: tr("search.placeholder"),
+              autoCapitalize: "none",
+              hideWhenScrolling: false,
+              onChangeText: (e) => setQuery(e.nativeEvent.text),
+              onSearchButtonPress: (e) => recentSearches.add(e.nativeEvent.text),
+              onCancelButtonPress: () => setQuery(""),
+            },
+          }}
+        />
+      ) : (
+        <SearchInput label={tr("search.title")} placeholder={tr("search.placeholder")} value={query} onChangeText={setQuery} autoFocus onSubmitEditing={() => recentSearches.add(query)} />
+      )}
+      {debounced.length < 2 ? <RecentSearches onPick={pickRecent} /> : <SearchResults query={debounced} search={search} />}
     </Screen>
   );
 }

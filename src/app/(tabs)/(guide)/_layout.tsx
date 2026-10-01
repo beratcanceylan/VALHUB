@@ -1,7 +1,7 @@
 import { TabStack } from "@/components/navigation/TabStack";
 import { useT } from "@/i18n";
 
-export default function LearnStack() {
+export default function GuideStack() {
   const { t } = useT();
-  return <TabStack screen="learn" title={t("tabs.learn")} />;
+  return <TabStack screen="guide" title={t("tabs.guide")} />;
 }
